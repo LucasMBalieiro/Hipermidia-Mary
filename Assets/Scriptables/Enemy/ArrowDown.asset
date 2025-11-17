@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ArrowDown
   m_EditorClassIdentifier: 
   gestureNames: 04000000
-  sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  sprite: {fileID: -268614020144375521, guid: 9de97d8b5ab43884dbd2de3799996424, type: 3}
   scorePoints: 50
