@@ -1,13 +1,17 @@
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TemplateScriptableObject[] templateScriptableObjects;
-    
-    [HideInInspector] public List<GestureTemplate> gestureTemplate;
-
     public static GameManager Instance { get; private set; }
+    
+    [Space(10)]
+    [SerializeField] private SoundData music;
+    [Space(20)]
+    
+    [SerializeField] private TemplateScriptableObject[] templateScriptableObjects;
+    [HideInInspector] public List<GestureTemplate> gestureTemplate;
     
     private void Awake()
     {
@@ -32,5 +36,7 @@ public class GameManager : MonoBehaviour
             gestureTemplate.Add(PennyPincher.CreateTemplate(template.gestureName, template.points));
         }
     }
+
+    public void PlayMusic() => SoundManager.Instance.CreateSound().Play(music);
     
 }

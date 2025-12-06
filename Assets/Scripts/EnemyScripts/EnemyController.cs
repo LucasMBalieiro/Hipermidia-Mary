@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     private int scorePoints;
     private float speed;
     
+    private float playerPosition;
+    
     private void OnEnable()
     {
         DrawMesh.OnGestureRecognized += HandleGestureHit;
@@ -26,11 +28,12 @@ public class EnemyController : MonoBehaviour
         Actions.OnGameOver -= KillEnemy;
     } 
 
-    public void Initialize(EnemyScriptableObject enemySO, float enemySpeed)
+    public void Initialize(EnemyScriptableObject enemySO, float enemySpeed, float playerPos)
     {
         gestureNames = enemySO.gestureNames;
         spriteRenderer.sprite = enemySO.sprite;
         scorePoints = enemySO.scorePoints;
+        playerPosition = playerPos;
         UpdateVisuals();
         
         speed = enemySpeed;
@@ -40,7 +43,7 @@ public class EnemyController : MonoBehaviour
     {
         transform.Translate(Vector2.left * (speed * Time.deltaTime));
 
-        if (transform.position.x < -18)
+        if (transform.position.x < playerPosition)
         {
             Actions.OnGameOver.Invoke();
             KillEnemy();

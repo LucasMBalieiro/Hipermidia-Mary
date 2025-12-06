@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DrawMesh : MonoBehaviour
@@ -22,6 +23,9 @@ public class DrawMesh : MonoBehaviour
     {
         GetComponent<MeshRenderer>().material = material;
     }
+
+    private void OnEnable() => Actions.OnGameOver += ClearMesh;
+    private void OnDisable() => Actions.OnGameOver -= ClearMesh;
 
     private void Update()
     {
@@ -138,6 +142,11 @@ public class DrawMesh : MonoBehaviour
     {
         RecognitionResult result = PennyPincher.Recognize(currentGesturePoints);
         OnGestureRecognized?.Invoke(result.gestureName);
-        mesh.Clear();
+        ClearMesh();
+    }
+    
+    private void ClearMesh()
+    {
+        if (mesh) mesh.Clear();
     }
 }
