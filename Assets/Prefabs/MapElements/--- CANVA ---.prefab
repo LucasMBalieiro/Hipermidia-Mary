@@ -845,7 +845,7 @@ PrefabInstance:
     - target: {fileID: 1446502181817935038, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b324a4685d480b346b084e8a5dbacbde, type: 3}
+      objectReference: {fileID: 21300000, guid: 0c1f20354a451704690923956be459eb, type: 3}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_text
       value: Menu principal
@@ -1003,7 +1003,7 @@ PrefabInstance:
     - target: {fileID: 1446502181817935038, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b324a4685d480b346b084e8a5dbacbde, type: 3}
+      objectReference: {fileID: 21300000, guid: 0c1f20354a451704690923956be459eb, type: 3}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_text
       value: Rejogar
