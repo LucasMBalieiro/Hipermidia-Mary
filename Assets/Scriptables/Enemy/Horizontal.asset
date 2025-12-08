@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Horizontal
   m_EditorClassIdentifier: 
   gestureNames: 01000000
-  sprite: {fileID: -268614020144375521, guid: 9de97d8b5ab43884dbd2de3799996424, type: 3}
+  sprite: {fileID: 21300000, guid: 20a600226d1d25d47b545c769fb2b9d1, type: 3}
+  enemyType: 1
   scorePoints: 10
