@@ -11,6 +11,10 @@ public class DrawMesh : MonoBehaviour
     [SerializeField] private float minDistance = .1f;
     [SerializeField] private float lineThickness;
     
+    [Header("Sorting Settings")]
+    [SerializeField] private string sortingLayerName; 
+    [SerializeField] private int sortingOrder;
+    
     private Mesh mesh;
     private Vector3 lastMousePosition;
     private readonly Vector3 normal2D = new Vector3(0,0,-1);
@@ -21,7 +25,12 @@ public class DrawMesh : MonoBehaviour
     
     private void Start()
     {
-        GetComponent<MeshRenderer>().material = material;
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        
+        meshRenderer.material = material;
+        
+        meshRenderer.sortingLayerName = sortingLayerName;
+        meshRenderer.sortingOrder = sortingOrder;
     }
 
     private void OnEnable() => Actions.OnGameOver += ClearMesh;

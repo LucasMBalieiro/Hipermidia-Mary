@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1385281679944565406}
   - component: {fileID: 2773513324392846298}
   - component: {fileID: 6902860232286551195}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DrawMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 812afba779040c147b1b4d1a35b0f403, type: 2}
   minDistance: 0.1
   lineThickness: 0.1
+  sortingLayerName: Foreground
+  sortingOrder: 5
 --- !u!23 &2773513324392846298
 MeshRenderer:
   m_ObjectHideFlags: 0
