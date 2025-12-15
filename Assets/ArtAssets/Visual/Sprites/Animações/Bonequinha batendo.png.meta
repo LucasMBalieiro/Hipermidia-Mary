@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 980b02e529dec8f4a81d7cef330b38c4
+guid: 43525c78e29f250438a3f7c9ad576217
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1362538428379503514
-    second: "palha\xE7o_0"
+      213: 431568765642069748
+    second: Bonequinha batendo_0
+  - first:
+      213: -6844015711334662537
+    second: Bonequinha batendo_1
+  - first:
+      213: -3733190359536781087
+    second: Bonequinha batendo_2
+  - first:
+      213: -3044024424627958437
+    second: Bonequinha batendo_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 80
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "palha\xE7o_0"
+      name: Bonequinha batendo_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 99
-        height: 76
+        width: 28
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 664ee97b48a471de0800000000000000
-      internalID: -1362538428379503514
+      spriteID: 4f6df3c718d3df500800000000000000
+      internalID: 431568765642069748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bonequinha batendo_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77e74b0c8fb2501a0800000000000000
+      internalID: -6844015711334662537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bonequinha batendo_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e8b5e4b52b013cc0800000000000000
+      internalID: -3733190359536781087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bonequinha batendo_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d007ae9e371c5d0800000000000000
+      internalID: -3044024424627958437
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "palha\xE7o_0": -1362538428379503514
+      Bonequinha batendo_0: 431568765642069748
+      Bonequinha batendo_1: -6844015711334662537
+      Bonequinha batendo_2: -3733190359536781087
+      Bonequinha batendo_3: -3044024424627958437
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
