@@ -25,7 +25,38 @@ Transform:
   m_GameObject: {fileID: 5106075391130728112}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19, y: 1.3, z: 0}
+  m_LocalPosition: {x: 24, y: 1.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9200643522034637692}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5894782188275754738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603023139041674613}
+  m_Layer: 0
+  m_Name: BossSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603023139041674613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5894782188275754738}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24, y: -1.5, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63,6 +94,7 @@ Transform:
   m_Children:
   - {fileID: 3956177504245288633}
   - {fileID: 5984900888707818552}
+  - {fileID: 603023139041674613}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1530118550473078074
@@ -79,21 +111,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundSpawnPoint: {fileID: 3956177504245288633}
   airSpawnPoint: {fileID: 5984900888707818552}
-  enemyPrefab: {fileID: 8800510834875983575, guid: fd9a884637421a4438100239a840dafe, type: 3}
+  bossSpawnPoint: {fileID: 603023139041674613}
+  enemyPrefab: {fileID: 4023334456127974828, guid: fd9a884637421a4438100239a840dafe, type: 3}
   enemies:
-  - {fileID: 11400000, guid: 8f6e61c26dd634d4189f0c30ab6df50d, type: 2}
-  - {fileID: 11400000, guid: 4642b66598979524ebfab9a2613672ce, type: 2}
-  - {fileID: 11400000, guid: 6c153a12199fe824396b627f884b2662, type: 2}
-  - {fileID: 11400000, guid: 86fa87da2cefc8e4695068b2c7e21eed, type: 2}
-  - {fileID: 11400000, guid: 5308a0fd657418d4d8a1628253723a56, type: 2}
-  spawnConfigs:
-  - minTime: 3
-    maxTime: 5
-    spawnSpeed: 5
-  - minTime: 2
-    maxTime: 4
-    spawnSpeed: 10
-  difficultyChangeTime: 20
+  - {fileID: 11400000, guid: 93d86491642ba924186f22506998749e, type: 2}
+  - {fileID: 11400000, guid: ede8c48c38f58f4488451d610c1d709e, type: 2}
+  - {fileID: 11400000, guid: 58012f2886e898b4bb3c98bec8dc22f7, type: 2}
+  bossSO: {fileID: 11400000, guid: 02f5b11463223eb4786cf52ea963f284, type: 2}
+  playerPosition: {fileID: 0}
+  minSpawnDelay: 3
+  maxSpawnDelay: 6
+  bossSpawnDelay: 20
+  speedMultiplier: 1
+  maxSpeed: 30
 --- !u!1 &8935222606940551449
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 8935222606940551449}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19, y: -1, z: 0}
+  m_LocalPosition: {x: 24, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

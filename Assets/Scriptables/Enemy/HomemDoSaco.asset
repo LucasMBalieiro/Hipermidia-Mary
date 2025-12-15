@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c20b6858975a62446b8a9544a2dbc116, type: 3}
-  m_Name: Horizontal
+  m_Name: HomemDoSaco
   m_EditorClassIdentifier: 
-  gestureNames: 01000000
-  sprite: {fileID: 21300000, guid: 20a600226d1d25d47b545c769fb2b9d1, type: 3}
-  enemyType: 1
-  scorePoints: 10
+  gestureNames: 010000000300000002000000040000000300000004000000
+  animationFrames:
+  - {fileID: 4464096614945973410, guid: b74b5124f56b6c94e9f9f9657d6797a6, type: 3}
+  - {fileID: 1656642788569518843, guid: b74b5124f56b6c94e9f9f9657d6797a6, type: 3}
+  enemyType: 2
+  scorePoints: 200
+  speedMultiplier: 0.6

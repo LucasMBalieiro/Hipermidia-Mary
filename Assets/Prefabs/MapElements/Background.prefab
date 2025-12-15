@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe971366618933b4d97f301b17fdaa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  parallaxFactor: 0.1
 --- !u!1 &2815022828925235813
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +199,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4409663526597922478}
   - component: {fileID: 794568433027939677}
-  - component: {fileID: 2301295870472785355}
   m_Layer: 0
   m_Name: BG_Sky
   m_TagString: Untagged
@@ -278,19 +277,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2301295870472785355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3085553314249736234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe971366618933b4d97f301b17fdaa8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
 --- !u!1 &3457860200423116474
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe971366618933b4d97f301b17fdaa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  parallaxFactor: 1
 --- !u!1 &5175837801245797915
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe971366618933b4d97f301b17fdaa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  parallaxFactor: 0.8
 --- !u!1 &6179445366606478083
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe971366618933b4d97f301b17fdaa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  parallaxFactor: 0.3
 --- !u!1 &7766276507886204466
 GameObject:
   m_ObjectHideFlags: 0

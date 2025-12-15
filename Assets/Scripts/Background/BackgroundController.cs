@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BackgroundController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [Range(0f, 1f)] [SerializeField] private float parallaxFactor = 1f;
+    
     private float textureWidth;
     private Vector3 startPosition;
 
@@ -47,7 +48,11 @@ public class BackgroundController : MonoBehaviour
     {
         while (true)
         {
-            transform.Translate(Vector3.left * (moveSpeed * Time.deltaTime));
+            float currentGlobalSpeed = GameManager.Instance.CurrentGameSpeed;
+            
+            float finalSpeed = currentGlobalSpeed * parallaxFactor;
+
+            transform.Translate(Vector3.left * (finalSpeed * Time.deltaTime));
 
             if (transform.position.x <= startPosition.x - textureWidth)
             {

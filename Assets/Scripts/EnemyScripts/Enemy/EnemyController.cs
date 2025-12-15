@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private EnemyAnimation enemyAnimation;
     [SerializeField] private TextMeshPro textBox;
     
     private GestureName[] gestureNames;
@@ -31,12 +31,13 @@ public class EnemyController : MonoBehaviour
     public void Initialize(EnemyScriptableObject enemySO, float enemySpeed, float playerPos)
     {
         gestureNames = enemySO.gestureNames;
-        spriteRenderer.sprite = enemySO.sprite;
         scorePoints = enemySO.scorePoints;
         playerPosition = playerPos;
-        UpdateVisuals();
         
-        speed = enemySpeed;
+        enemyAnimation.Initialize(enemySO);
+        UpdateVisuals();
+
+        speed = enemySpeed * enemySO.speedMultiplier;
     }
 
     private void Update()

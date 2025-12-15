@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c20b6858975a62446b8a9544a2dbc116, type: 3}
-  m_Name: ArrowDown
+  m_Name: "Palha\xE7o"
   m_EditorClassIdentifier: 
-  gestureNames: 04000000
-  sprite: {fileID: 21300000, guid: 980b02e529dec8f4a81d7cef330b38c4, type: 3}
+  gestureNames: 0200000004000000
+  animationFrames:
+  - {fileID: -3420617141709164072, guid: c9d68a180098af34ca7b350fdda3e43d, type: 3}
+  - {fileID: 7659751984177579302, guid: c9d68a180098af34ca7b350fdda3e43d, type: 3}
+  - {fileID: 1534634072, guid: c9d68a180098af34ca7b350fdda3e43d, type: 3}
   enemyType: 0
   scorePoints: 50

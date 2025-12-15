@@ -93,6 +93,7 @@ namespace Audio
         {
             obj.gameObject.SetActive(true);
             activeSoundEmitters.Add(obj);
+            FrequentSoundEmitters.Remove(obj);
         }
 
         private void OnReleaseSoundEmitter(SoundEmitter obj)

@@ -3,35 +3,29 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[System.Serializable]
-public struct SpawnConfig
-{
-    [Header("Spawn Times")]
-    public float minTime;
-    public float maxTime;
-    
-    [Header("Spawn Speed")]
-    public float spawnSpeed;
-}
-
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Transform groundSpawnPoint;
     [SerializeField] private Transform airSpawnPoint;
+    [SerializeField] private Transform bossSpawnPoint;
     
     [Header("Enemy Data")]
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private EnemyController enemyPrefab;
     [SerializeField] private EnemyScriptableObject[] enemies;
-    
+    [SerializeField] private EnemyScriptableObject bossSO;
+
     [Header("Spawn Data")]
     [SerializeField] private Transform playerPosition;
-    [SerializeField] private SpawnConfig[] spawnConfigs;
-    [SerializeField] private float difficultyChangeTime;
+    [SerializeField] private float minSpawnDelay = 1.0f;
+    [SerializeField] private float maxSpawnDelay = 3.0f;
+    [SerializeField] private float bossSpawnDelay = 20f;
+    
+    [Header("Speed Progression")]
+    [SerializeField] private float maxSpeed = 20f;
     
     private Coroutine spawnCoroutine;
-    private int currentDifficulty;
-    private int maxDifficulty;
-    private float startTime;
+    private Coroutine bossSpawnCoroutine;
+    
 
     private void OnEnable()
     {
@@ -47,43 +41,62 @@ public class EnemySpawner : MonoBehaviour
 
     private void StartGame()
     {
-        currentDifficulty = 0;
-        startTime = Time.time;
-        maxDifficulty = spawnConfigs.Length;
         spawnCoroutine = StartCoroutine(SpawnLoop());
+        bossSpawnCoroutine = StartCoroutine(BossSpawnLoop());
     }
 
     private void GameOver()
     {
         StopCoroutine(spawnCoroutine);
+        StopCoroutine(bossSpawnCoroutine);
     }
 
     private IEnumerator SpawnLoop()
     {
         while (true)
         {
-            float delay = Random.Range(spawnConfigs[currentDifficulty].minTime, spawnConfigs[currentDifficulty].maxTime);
+            float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(delay);
             
-            int randomSpawn = Random.Range(0, enemies.Length);
-            EnemyScriptableObject enemySO = enemies[randomSpawn];
-
-            Transform spawnPoint = enemySO.enemyType == EnemyType.Ground ? groundSpawnPoint : airSpawnPoint;
+            int randomEnemy = Random.Range(0, enemies.Length);
+            EnemyScriptableObject enemySO = enemies[randomEnemy];
             
-            GameObject newEnemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-
-            EnemyController enemyController = newEnemy.GetComponent<EnemyController>();
-            
-            enemyController.Initialize(enemies[randomSpawn], 
-                spawnConfigs[currentDifficulty].spawnSpeed, playerPosition.position.x);
-            
-            float elapsedTime = Time.time - startTime;
-
-            if (elapsedTime >= difficultyChangeTime && currentDifficulty < maxDifficulty -1)
-            {
-                currentDifficulty++;
-                startTime = Time.time;
-            }
+            InstantiateEnemy(enemySO);
         }
+    }
+
+    private IEnumerator BossSpawnLoop()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(bossSpawnDelay);
+            
+            InstantiateEnemy(bossSO);
+        }
+    }
+
+    private void InstantiateEnemy(EnemyScriptableObject enemySO)
+    {
+        float calculatedSpeed = GetSpeed();
+        Transform spawnPoint = GetSpawnPoint(enemySO.enemyType);
+        
+        EnemyController newEnemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+        newEnemy.Initialize(enemySO, calculatedSpeed, playerPosition.position.x);
+    }
+
+    private float GetSpeed()
+    {
+        return Mathf.Min(GameManager.Instance.CurrentGameSpeed, maxSpeed);
+    }
+
+    private Transform GetSpawnPoint(EnemyType enemyType)
+    {
+        return enemyType switch
+        {
+            EnemyType.Ground => groundSpawnPoint,
+            EnemyType.Flying => airSpawnPoint,
+            EnemyType.Boss => bossSpawnPoint,
+            _ => throw new ArgumentOutOfRangeException(nameof(enemyType), enemyType, null)
+        };
     }
 }
