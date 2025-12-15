@@ -13,7 +13,7 @@ namespace Menu.UI
         
         public void StartGame()
         {
-            SoundManager.Instance.SetDreamyFilter();
+            SnapshotActions.SetMuffledFilter.Invoke();
             SceneManager.LoadScene(1);
         }
 

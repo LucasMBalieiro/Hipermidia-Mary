@@ -36,7 +36,6 @@ namespace Audio
         private void Start()
         {
             InitializePool();
-            InitializeSnapShot();
             GameManager.Instance.PlayMusic();
         }
 
@@ -67,26 +66,6 @@ namespace Audio
         {
             soundEmitterPool.Release(soundEmitter);
         }
-        
-        #region Snapshot Filter
-        
-            [SerializeField] private AudioMixer mainMixer;
-            private const string SnapshotUnpaused = "Unpaused";
-            private const string SnapshotPaused = "Paused";
-
-            private AudioMixerSnapshot defaultSnapshot;
-            private AudioMixerSnapshot dreamySnapshot;
-
-            private void InitializeSnapShot()
-            {
-                defaultSnapshot = mainMixer.FindSnapshot(SnapshotUnpaused);
-                dreamySnapshot = mainMixer.FindSnapshot(SnapshotPaused);
-            }
-            
-            public void SetDefaultFilter() => defaultSnapshot.TransitionTo(0.5f);
-            public void SetDreamyFilter() => dreamySnapshot.TransitionTo(0.5f);
-        
-        #endregion
         
         #region ObjectPool
             

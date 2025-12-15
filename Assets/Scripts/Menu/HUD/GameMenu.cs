@@ -22,19 +22,19 @@ public class GameMenu : MonoBehaviour
     {
         startMenu.SetActive(false);
         gameOverMenu.SetActive(false);
-        SoundManager.Instance.SetDefaultFilter();
+        SnapshotActions.SetDefaultFilter.Invoke();
         Actions.OnStartGame.Invoke();
     }
 
     public void BackToMenu()
     {
-        SoundManager.Instance.SetDefaultFilter();
+        SnapshotActions.SetDefaultFilter.Invoke();
         SceneManager.LoadScene(0);
     }
     
     private void GameOver()
     {
-        SoundManager.Instance.SetDreamyFilter();
+        SnapshotActions.SetMuffledFilter.Invoke();
         gameOverMenu.SetActive(true);
     }
 }
