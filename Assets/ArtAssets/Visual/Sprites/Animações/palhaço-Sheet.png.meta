@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: e951730b643fab942a3fd245277371ab
+guid: c9d68a180098af34ca7b350fdda3e43d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7473632512206773976
-    second: spriteperson. (1)_0
+      213: -3420617141709164072
+    second: "palha\xE7o-Sheet_0"
   - first:
-      213: 3224561179321645457
-    second: spriteperson. (1)_1
-  - first:
-      213: 2852542832046714886
-    second: spriteperson. (1)_2
-  - first:
-      213: 4171662650386491350
-    second: spriteperson. (1)_3
+      213: 7659751984177579302
+    second: "palha\xE7o-Sheet_1"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spriteperson. (1)_0
+      name: "palha\xE7o-Sheet_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 28
-        height: 32
+        width: 100
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8de15ef3c2da7b760800000000000000
-      internalID: 7473632512206773976
+      spriteID: 8d130d335d68780d0800000000000000
+      internalID: -3420617141709164072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spriteperson. (1)_1
+      name: "palha\xE7o-Sheet_1"
       rect:
         serializedVersion: 2
-        x: 32
+        x: 98
         y: 0
-        width: 28
-        height: 32
+        width: 199
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,52 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1993bf1ee41ffbc20800000000000000
-      internalID: 3224561179321645457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spriteperson. (1)_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 28
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6003bb2a794469720800000000000000
-      internalID: 2852542832046714886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spriteperson. (1)_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6d72d0ff319b4e930800000000000000
-      internalID: 4171662650386491350
+      spriteID: 6258f74b8d7ec4a60800000000000000
+      internalID: 7659751984177579302
       vertices: []
       indices: 
       edges: []
@@ -210,10 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spriteperson. (1)_0: 7473632512206773976
-      spriteperson. (1)_1: 3224561179321645457
-      spriteperson. (1)_2: 2852542832046714886
-      spriteperson. (1)_3: 4171662650386491350
+      "palha\xE7o-Sheet_0": -3420617141709164072
+      "palha\xE7o-Sheet_1": 7659751984177579302
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
