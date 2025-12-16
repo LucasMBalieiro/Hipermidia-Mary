@@ -436,10 +436,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 603023139041674613, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 603023139041674613, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 603023139041674613, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.97
+      objectReference: {fileID: 0}
     - target: {fileID: 1530118550473078074, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
       propertyPath: playerPosition
       value: 
       objectReference: {fileID: 1551059122}
+    - target: {fileID: 3956177504245288633, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956177504245288633, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956177504245288633, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984900888707818552, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984900888707818552, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984900888707818552, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6796244673727273776, guid: dd45bfe0d97db1a4d96d50eb7710014c, type: 3}
       propertyPath: m_Name
       value: EnemySpawner

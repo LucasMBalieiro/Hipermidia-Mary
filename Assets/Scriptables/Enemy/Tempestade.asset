@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20b6858975a62446b8a9544a2dbc116, type: 3}
   m_Name: Tempestade
   m_EditorClassIdentifier: 
-  gestureNames: 0100000002000000
+  gestureNames: 01000000
   animationFrames:
   - {fileID: -268614020144375521, guid: 876b786f395cb054291ef8fea812a691, type: 3}
   - {fileID: -5583729263522272926, guid: 876b786f395cb054291ef8fea812a691, type: 3}
@@ -20,3 +20,4 @@ MonoBehaviour:
   - {fileID: 3481070348088010192, guid: 876b786f395cb054291ef8fea812a691, type: 3}
   enemyType: 1
   scorePoints: 50
+  speedMultiplier: 1
