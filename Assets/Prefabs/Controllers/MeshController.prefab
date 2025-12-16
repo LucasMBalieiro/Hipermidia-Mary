@@ -49,9 +49,30 @@ MonoBehaviour:
   camera: {fileID: 0}
   material: {fileID: 2100000, guid: 812afba779040c147b1b4d1a35b0f403, type: 2}
   minDistance: 0.1
-  lineThickness: 0.1
+  lineThickness: 0
+  magicWandParticles: {fileID: 6217999992579515033}
   sortingLayerName: Foreground
   sortingOrder: 5
+  wandClickSound:
+    audioClip: {fileID: 8300000, guid: 814b074a868664e4d88d7657c1f3a3c2, type: 3}
+    audioMixerGroup: {fileID: 7910303045535529364, guid: 06e3dc53df401724a99ad836b15e51f5, type: 2}
+    loop: 0
+    frequentSound: 0
+  wandLoopSound:
+    audioClip: {fileID: 8300000, guid: 6d35cfd04300163448b62d5d15c6d01b, type: 3}
+    audioMixerGroup: {fileID: 7910303045535529364, guid: 06e3dc53df401724a99ad836b15e51f5, type: 2}
+    loop: 1
+    frequentSound: 0
+  wandReleaseSound:
+    audioClip: {fileID: 8300000, guid: f727bd3f740863d4aaf3d2a25ba3a0b2, type: 3}
+    audioMixerGroup: {fileID: 7910303045535529364, guid: 06e3dc53df401724a99ad836b15e51f5, type: 2}
+    loop: 0
+    frequentSound: 0
+  deathSound:
+    audioClip: {fileID: 8300000, guid: ab34baad13bb96542a14544de9e70670, type: 3}
+    audioMixerGroup: {fileID: -8263812819483783721, guid: 06e3dc53df401724a99ad836b15e51f5, type: 2}
+    loop: 0
+    frequentSound: 0
 --- !u!23 &2773513324392846298
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -136,6 +157,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2987063382773183525}
+  - {fileID: 1127461425567766718}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4892576367137367125
@@ -151,3 +173,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawMesh: {fileID: 1385281679944565406}
+--- !u!1001 &7889957161599019137
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7602566283892640881}
+    m_Modifications:
+    - target: {fileID: 3388200133606784752, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_Name
+      value: WandSpark
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+--- !u!4 &1127461425567766718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7123373054411190335, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+  m_PrefabInstance: {fileID: 7889957161599019137}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6217999992579515033 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4266039354809240088, guid: 42f5875502818334faec4edabc46ac4e, type: 3}
+  m_PrefabInstance: {fileID: 7889957161599019137}
+  m_PrefabAsset: {fileID: 0}

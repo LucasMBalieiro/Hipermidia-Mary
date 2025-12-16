@@ -1,23 +1,36 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class DrawMesh : MonoBehaviour
 {
     [SerializeField] private new Camera camera;
-    [SerializeField] private Material material;
     
+    [Space(5)]
+    [Header("Materials")]
+    [SerializeField] private Material material;
     [SerializeField] private float minDistance = .1f;
     [SerializeField] private float lineThickness;
+    [SerializeField] private ParticleSystem magicWandParticles;
     
+    [Space(5)]
     [Header("Sorting Settings")]
     [SerializeField] private string sortingLayerName; 
     [SerializeField] private int sortingOrder;
     
+    [Space(5)]
+    [Header("Audio Settings")]
+    [SerializeField] private SoundData wandClickSound;
+    [SerializeField] private SoundData wandLoopSound;
+    [SerializeField] private SoundData wandReleaseSound;
+    [SerializeField] private SoundData deathSound;
+    
     private Mesh mesh;
     private Vector3 lastMousePosition;
     private readonly Vector3 normal2D = new Vector3(0,0,-1);
+    private SoundEmitter wandLoopEmitter;
     
     private List<Vector2> currentGesturePoints = new List<Vector2>();
     
@@ -31,6 +44,8 @@ public class DrawMesh : MonoBehaviour
         
         meshRenderer.sortingLayerName = sortingLayerName;
         meshRenderer.sortingOrder = sortingOrder;
+        
+        magicWandParticles.Stop();
     }
 
     private void OnEnable() => Actions.OnGameOver += ClearMesh;
@@ -59,12 +74,16 @@ public class DrawMesh : MonoBehaviour
     {
         mesh = new Mesh();
         currentGesturePoints.Clear();
+        SoundManager.Instance.CreateSound().Play(wandClickSound);
         
         Vector3[] vertices = new Vector3[4];
         Vector2[] uv = new Vector2[4];
         int[] triangles = new int[6];
             
         Vector3 currentMousePosition = DrawUtils.GetMouseWorldPosition(camera);
+        
+        UpdateParticlePosition(currentMousePosition);
+        magicWandParticles.Play();
 
         vertices[0] = currentMousePosition;
         vertices[1] = currentMousePosition;
@@ -90,6 +109,8 @@ public class DrawMesh : MonoBehaviour
         mesh.MarkDynamic();
         
         GetComponent<MeshFilter>().mesh = mesh;
+        
+        wandLoopEmitter = SoundManager.Instance.CreateSound().PlayOnSoundEmitter(wandLoopSound);
             
         currentGesturePoints.Add(new Vector2(currentMousePosition.x, currentMousePosition.y));
         lastMousePosition = currentMousePosition;
@@ -98,57 +119,62 @@ public class DrawMesh : MonoBehaviour
     private void HandleMouseDrag()
     {
         Vector3 currentMousePosition = DrawUtils.GetMouseWorldPosition(camera);
+        
+        UpdateParticlePosition(currentMousePosition);
+        
+        if (Vector3.Distance(currentMousePosition, lastMousePosition) > minDistance)
+        {
+            currentGesturePoints.Add(new Vector2(currentMousePosition.x, currentMousePosition.y));
             
-            if (Vector3.Distance(currentMousePosition, lastMousePosition) > minDistance)
-            {
-                currentGesturePoints.Add(new Vector2(currentMousePosition.x, currentMousePosition.y));
-                
-                Vector3[] newVertices = new Vector3[mesh.vertices.Length + 2];
-                Vector2[] newUV = new Vector2[mesh.vertices.Length + 2];
-                int[] newTriangles = new int[mesh.triangles.Length + 6];
-            
-                mesh.vertices.CopyTo(newVertices, 0);
-                mesh.uv.CopyTo(newUV, 0);
-                mesh.triangles.CopyTo(newTriangles, 0);
+            Vector3[] newVertices = new Vector3[mesh.vertices.Length + 2];
+            Vector2[] newUV = new Vector2[mesh.vertices.Length + 2];
+            int[] newTriangles = new int[mesh.triangles.Length + 6];
+        
+            mesh.vertices.CopyTo(newVertices, 0);
+            mesh.uv.CopyTo(newUV, 0);
+            mesh.triangles.CopyTo(newTriangles, 0);
 
-                int vertexIndex = newVertices.Length - 4;
-            
-                int vertexIndex0 = vertexIndex;
-                int vertexIndex1 = vertexIndex + 1;
-                int vertexIndex2 = vertexIndex + 2;
-                int vertexIndex3 = vertexIndex + 3;
-            
-                Vector3 mouseFowardVector = (currentMousePosition - lastMousePosition).normalized;
+            int vertexIndex = newVertices.Length - 4;
+        
+            int vertexIndex0 = vertexIndex;
+            int vertexIndex1 = vertexIndex + 1;
+            int vertexIndex2 = vertexIndex + 2;
+            int vertexIndex3 = vertexIndex + 3;
+        
+            Vector3 mouseFowardVector = (currentMousePosition - lastMousePosition).normalized;
 
-                Vector3 newVertexUp = currentMousePosition + Vector3.Cross(mouseFowardVector, normal2D) * lineThickness;
-                Vector3 newVertexDown = currentMousePosition + Vector3.Cross(mouseFowardVector, -normal2D) * lineThickness;
-            
-                newVertices[vertexIndex2] = newVertexUp;
-                newVertices[vertexIndex3] = newVertexDown;
-            
-                newUV[vertexIndex2] = Vector2.zero;
-                newUV[vertexIndex3] = Vector2.zero;
-            
-                int triangleIndex = newTriangles.Length - 6;
-            
-                newTriangles[triangleIndex] = vertexIndex0;
-                newTriangles[triangleIndex + 1] = vertexIndex2;
-                newTriangles[triangleIndex + 2] = vertexIndex1;
-            
-                newTriangles[triangleIndex + 3] = vertexIndex1;
-                newTriangles[triangleIndex + 4] = vertexIndex2;
-                newTriangles[triangleIndex + 5] = vertexIndex3;
-            
-                mesh.vertices = newVertices;
-                mesh.uv = newUV;
-                mesh.triangles = newTriangles;
-            
-                lastMousePosition = currentMousePosition;   
-            }
+            Vector3 newVertexUp = currentMousePosition + Vector3.Cross(mouseFowardVector, normal2D) * lineThickness;
+            Vector3 newVertexDown = currentMousePosition + Vector3.Cross(mouseFowardVector, -normal2D) * lineThickness;
+        
+            newVertices[vertexIndex2] = newVertexUp;
+            newVertices[vertexIndex3] = newVertexDown;
+        
+            newUV[vertexIndex2] = Vector2.zero;
+            newUV[vertexIndex3] = Vector2.zero;
+        
+            int triangleIndex = newTriangles.Length - 6;
+        
+            newTriangles[triangleIndex] = vertexIndex0;
+            newTriangles[triangleIndex + 1] = vertexIndex2;
+            newTriangles[triangleIndex + 2] = vertexIndex1;
+        
+            newTriangles[triangleIndex + 3] = vertexIndex1;
+            newTriangles[triangleIndex + 4] = vertexIndex2;
+            newTriangles[triangleIndex + 5] = vertexIndex3;
+        
+            mesh.vertices = newVertices;
+            mesh.uv = newUV;
+            mesh.triangles = newTriangles;
+        
+            lastMousePosition = currentMousePosition;   
+        }
     }
 
     private void HandleMouseUp()
     {
+        SoundManager.Instance.CreateSound().Play(wandReleaseSound);
+        Actions.OnAttack.Invoke();
+        
         RecognitionResult result = PennyPincher.Recognize(currentGesturePoints);
         OnGestureRecognized?.Invoke(result.gestureName);
         ClearMesh();
@@ -157,5 +183,15 @@ public class DrawMesh : MonoBehaviour
     private void ClearMesh()
     {
         if (mesh) mesh.Clear();
+        if (magicWandParticles) magicWandParticles.Stop();
+
+        if (!wandLoopEmitter) return;
+        wandLoopEmitter.Stop();
+        wandLoopEmitter = null;
+    }
+    
+    private void UpdateParticlePosition(Vector3 worldPos)
+    {
+        magicWandParticles.transform.position = new Vector3(worldPos.x, worldPos.y, -9f);
     }
 }

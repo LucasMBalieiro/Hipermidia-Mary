@@ -28,10 +28,6 @@ namespace Audio
 
         public void Play(SoundData soundData)
         {
-            if (soundData == null) {
-                Debug.LogError("SoundData == null");
-                return;
-            }
             
             if(!soundManager.CanPlaySound(soundData)) return;
             
@@ -44,6 +40,23 @@ namespace Audio
             if(soundData.frequentSound) soundManager.FrequentSoundEmitters.AddLast(soundEmitter);
             
             soundEmitter.Play();
+        }
+
+        public SoundEmitter PlayOnSoundEmitter(SoundData soundData)
+        {
+            if(!soundManager.CanPlaySound(soundData)) return null;
+            
+            SoundEmitter soundEmitter = soundManager.GetSoundEmitter();
+            soundEmitter.Initialize(soundData);
+            soundEmitter.transform.position = soundPosition;
+
+            if (randomPitch) soundEmitter.WithRandomPitch();
+            
+            if(soundData.frequentSound) soundManager.FrequentSoundEmitters.AddLast(soundEmitter);
+            
+            soundEmitter.Play();
+            
+            return soundEmitter;
         }
         
     }

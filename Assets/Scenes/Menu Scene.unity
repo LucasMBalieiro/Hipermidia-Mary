@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testSound:
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 189e9f6b252770a4a932f55758e14260, type: 3}
     audioMixerGroup: {fileID: -8909758718914616196, guid: 06e3dc53df401724a99ad836b15e51f5, type: 2}
     loop: 0
     frequentSound: 0
@@ -2830,7 +2830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testSound:
-    audioClip: {fileID: 8300000, guid: 49f32fe314b83f24abd63cc295275ca3, type: 3}
+    audioClip: {fileID: 8300000, guid: 814b074a868664e4d88d7657c1f3a3c2, type: 3}
     audioMixerGroup: {fileID: 7910303045535529364, guid: 06e3dc53df401724a99ad836b15e51f5, type: 2}
     loop: 0
     frequentSound: 0

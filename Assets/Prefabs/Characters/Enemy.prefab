@@ -432,6 +432,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAnimation: {fileID: 3162196627172408093}
   textBox: {fileID: 8565739667958747557}
+  explosionPrefab: {fileID: 7713756376941313591, guid: f5419898bddda524d95151fb41f267e2, type: 3}
+  spawnSound:
+    audioClip: {fileID: 8300000, guid: 189e9f6b252770a4a932f55758e14260, type: 3}
+    audioMixerGroup: {fileID: -8909758718914616196, guid: 06e3dc53df401724a99ad836b15e51f5, type: 2}
+    loop: 0
+    frequentSound: 1
+  deathSound:
+    audioClip: {fileID: 8300000, guid: 401dfd71156f70a409e06baece6f63d5, type: 3}
+    audioMixerGroup: {fileID: -8909758718914616196, guid: 06e3dc53df401724a99ad836b15e51f5, type: 2}
+    loop: 0
+    frequentSound: 1
 --- !u!114 &3162196627172408093
 MonoBehaviour:
   m_ObjectHideFlags: 0

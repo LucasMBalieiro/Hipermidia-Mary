@@ -1,4 +1,5 @@
 using System;
+using Audio;
 using EnemyScripts;
 using TMPro;
 using UnityEngine;
@@ -6,8 +7,14 @@ using UnityEngine.Serialization;
 
 public class EnemyController : MonoBehaviour
 {
+    [Header("Visuals")]
     [SerializeField] private EnemyAnimation enemyAnimation;
     [SerializeField] private TextMeshPro textBox;
+    [SerializeField] private GameObject explosionPrefab;
+    
+    [Space(5)]
+    [SerializeField] private SoundData spawnSound;
+    [SerializeField] private SoundData deathSound;
     
     private GestureName[] gestureNames;
     private int currentGesture = 0;
@@ -36,6 +43,7 @@ public class EnemyController : MonoBehaviour
         
         enemyAnimation.Initialize(enemySO);
         UpdateVisuals();
+        SoundManager.Instance.CreateSound().Play(spawnSound);
 
         speed = enemySpeed * enemySO.speedMultiplier;
     }
@@ -73,6 +81,9 @@ public class EnemyController : MonoBehaviour
 
     private void KillEnemy()
     {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        SoundManager.Instance.CreateSound().Play(deathSound);
+        
         Destroy(gameObject);
     }
 
