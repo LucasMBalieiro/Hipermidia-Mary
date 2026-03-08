@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 2
-  maxSpeed: 30
+  maxSpeed: 40
   music:
     audioClip: {fileID: 8300000, guid: e975bd4f603f6d0459c888c940571258, type: 3}
     audioMixerGroup: {fileID: -8263812819483783721, guid: 06e3dc53df401724a99ad836b15e51f5, type: 2}

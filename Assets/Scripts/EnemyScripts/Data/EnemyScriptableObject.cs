@@ -10,7 +10,8 @@ public enum EnemyType
 [CreateAssetMenu(fileName = "EnemyScriptableObject", menuName = "Scriptable Objects/Enemy")]
 public class EnemyScriptableObject : ScriptableObject
 {
-    public GestureName[] gestureNames;
+    public int minRangeGesture;
+    public int maxRangeGesture;
     public Sprite[] animationFrames;
     public EnemyType enemyType;
     public int scorePoints;

@@ -4,6 +4,7 @@ using EnemyScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour
 {
@@ -18,8 +19,9 @@ public class EnemyController : MonoBehaviour
     
     private GestureName[] gestureNames;
     private int currentGesture = 0;
+    private int gestureCount;
     private int scorePoints;
-    private float speed;
+    private float speedMultiplier;
     
     private float playerPosition;
     
@@ -35,22 +37,29 @@ public class EnemyController : MonoBehaviour
         Actions.OnGameOver -= KillEnemy;
     } 
 
-    public void Initialize(EnemyScriptableObject enemySO, float enemySpeed, float playerPos)
+    public void Initialize(EnemyScriptableObject enemySO, float playerPos)
     {
-        gestureNames = enemySO.gestureNames;
-        scorePoints = enemySO.scorePoints;
+        gestureCount = Random.Range(enemySO.minRangeGesture, enemySO.maxRangeGesture +1);
+        gestureNames = new GestureName[gestureCount];
+
+        for (int i = 0; i < gestureCount; i++)
+        {
+            gestureNames[i] = GameManager.Instance.GetRandomGesture();
+        }
+        
+        speedMultiplier = enemySO.speedMultiplier;
+        scorePoints = enemySO.scorePoints * (int)GameManager.Instance.CurrentGameSpeed;
+
         playerPosition = playerPos;
         
         enemyAnimation.Initialize(enemySO);
         UpdateVisuals();
         SoundManager.Instance.CreateSound().Play(spawnSound);
-
-        speed = enemySpeed * enemySO.speedMultiplier;
     }
 
     private void Update()
     {
-        transform.Translate(Vector2.left * (speed * Time.deltaTime));
+        transform.Translate(Vector2.left * ((GameManager.Instance.CurrentGameSpeed * speedMultiplier) * Time.deltaTime));
 
         if (transform.position.x < playerPosition)
         {
@@ -62,6 +71,7 @@ public class EnemyController : MonoBehaviour
     private void HandleGestureHit(GestureName gestureHit)
     {
         if(gestureHit == gestureNames[currentGesture]) HitEnemy();
+        
     }
 
     private void HitEnemy()

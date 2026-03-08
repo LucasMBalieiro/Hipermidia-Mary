@@ -11,12 +11,14 @@ public class ScoreCounter : MonoBehaviour
     {
         Actions.OnScoreChange += AddScore;
         Actions.OnStartGame += ResetScore;
+        Actions.OnGameOver += UpdateHighScore;
     }
 
     private void OnDisable()
     {
         Actions.OnScoreChange -= AddScore;
         Actions.OnStartGame -= ResetScore;
+        Actions.OnGameOver -= UpdateHighScore;
     } 
         
     
@@ -29,6 +31,11 @@ public class ScoreCounter : MonoBehaviour
     private void UpdateVisual()
     {
         scoreText.text = totalScore.ToString();
+    }
+
+    private void UpdateHighScore()
+    {
+        GameManager.Instance.CompareHighScore(totalScore);
     }
 
     private void ResetScore()

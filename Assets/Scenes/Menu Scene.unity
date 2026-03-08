@@ -251,7 +251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b324a4685d480b346b084e8a5dbacbde, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c1f20354a451704690923956be459eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -625,6 +625,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1014,7 +1015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_text
-      value: Sair
+      value: Quit
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_fontColor.b
@@ -1111,6 +1112,10 @@ PrefabInstance:
     - target: {fileID: 2039368403042331858, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796691572894355585, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
+      propertyPath: onHoverSound.frequentSound
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7971960591750685840, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_Name
@@ -1307,7 +1312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_text
-      value: SAir
+      value: Yes
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_fontColor.b
@@ -1536,7 +1541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_text
-      value: Voltar
+      value: Back
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_fontColor.b
@@ -1809,6 +1814,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1869,6 +1875,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &453044596
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1887,6 +1894,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1908,9 +1917,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 871598849540098566, guid: e050da7997a060540aae7aa4e3010e25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1920,7 +1931,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &453044597
 Transform:
@@ -2923,7 +2933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_text
-      value: Opcoes
+      value: Options
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_fontColor.b
@@ -3020,6 +3030,10 @@ PrefabInstance:
     - target: {fileID: 2039368403042331858, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796691572894355585, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
+      propertyPath: onHoverSound.frequentSound
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7971960591750685840, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_Name
@@ -3158,6 +3172,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3432,6 +3447,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3707,7 +3723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nome do jogo
+  m_text: Lily's Nightmare
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: caf878dbb22336a4abb10033e0751fd2, type: 2}
   m_sharedMaterial: {fileID: 4725048755653259763, guid: caf878dbb22336a4abb10033e0751fd2, type: 2}
@@ -3745,6 +3761,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3956,6 +3973,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4193,7 +4211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Opcoes
+  m_text: Options
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: caf878dbb22336a4abb10033e0751fd2, type: 2}
   m_sharedMaterial: {fileID: 4725048755653259763, guid: caf878dbb22336a4abb10033e0751fd2, type: 2}
@@ -4231,6 +4249,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4401,7 +4420,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -4409,6 +4427,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1001 &1346112646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4423,7 +4442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_text
-      value: Voltar
+      value: No
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_fontColor.b
@@ -4770,7 +4789,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Deseja mesmo sair?
+  m_text: "Do you wish to \nwake up?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: caf878dbb22336a4abb10033e0751fd2, type: 2}
   m_sharedMaterial: {fileID: 4725048755653259763, guid: caf878dbb22336a4abb10033e0751fd2, type: 2}
@@ -4808,6 +4827,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4883,8 +4903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 300}
-  m_SizeDelta: {x: 500, y: 120}
+  m_AnchoredPosition: {x: 0, y: 270}
+  m_SizeDelta: {x: 650.12, y: 156.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1642050546
 GameObject:
@@ -5273,6 +5293,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2862625392115006054, guid: 66785106309aba142a5ff19540c8dde1, type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862625392115006054, guid: 66785106309aba142a5ff19540c8dde1, type: 3}
+      propertyPath: speedMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4502841625057987605, guid: 66785106309aba142a5ff19540c8dde1, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -5723,6 +5751,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -5778,7 +5807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_text
-      value: Iniciar jogo
+      value: Start Game
       objectReference: {fileID: 0}
     - target: {fileID: 1591042134284552915, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_fontColor.b
@@ -5875,6 +5904,10 @@ PrefabInstance:
     - target: {fileID: 2039368403042331858, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796691572894355585, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
+      propertyPath: onHoverSound.frequentSound
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7971960591750685840, guid: 951eea0baae7eea469bc0ca600602a9b, type: 3}
       propertyPath: m_Name

@@ -8,4 +8,6 @@ public static class Actions
     public static Action OnStartGame;
     public static Action OnGameOver;
     public static Action OnAttack;
+    
+    public static Action OnHighscoreUpdate;
 }

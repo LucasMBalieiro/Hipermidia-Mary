@@ -1,21 +1,26 @@
 using Audio;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
     [SerializeField] private GameObject startMenu;
     [SerializeField] private GameObject gameOverMenu;
+    
+    [SerializeField] private TextMeshProUGUI highscoreText;
 
     private void OnEnable() {
         Actions.OnGameOver += GameOver;
+        Actions.OnHighscoreUpdate += SetHighScore;
     }
 
     private void OnDisable()
     {
         Actions.OnGameOver -= GameOver;
+        Actions.OnHighscoreUpdate -= SetHighScore;
     }
-        
     
     
     public void StartGame()
@@ -36,5 +41,10 @@ public class GameMenu : MonoBehaviour
     {
         SnapshotActions.SetMuffledFilter.Invoke();
         gameOverMenu.SetActive(true);
+    }
+
+    private void SetHighScore()
+    {
+        highscoreText.text = "Highscore: " + GameManager.Instance.HighScore.ToString();
     }
 }

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20b6858975a62446b8a9544a2dbc116, type: 3}
   m_Name: HomemDoSaco
   m_EditorClassIdentifier: 
-  gestureNames: 01000000030000000200000004000000
+  minRangeGesture: 3
+  maxRangeGesture: 6
   animationFrames:
   - {fileID: 4464096614945973410, guid: b74b5124f56b6c94e9f9f9657d6797a6, type: 3}
   - {fileID: 1656642788569518843, guid: b74b5124f56b6c94e9f9f9657d6797a6, type: 3}
   enemyType: 2
-  scorePoints: 200
+  scorePoints: 30
   speedMultiplier: 0.6

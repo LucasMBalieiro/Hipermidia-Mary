@@ -1,18 +1,23 @@
+using System;
 using System.Collections.Generic;
 using Audio;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     
     public float CurrentGameSpeed { get; private set; }
+    
+    public int HighScore { get; private set; }
 
     [Header("Global Speed Settings")]
-    [SerializeField] private float speedMultiplier = 2f;
     [SerializeField] private float maxSpeed = 20f;
     private float gameStartTime;
     private bool isGameRunning = false;
+    
+    private int currentGesture = 0;
     
     [Space(10)]
     [SerializeField] private SoundData music;
@@ -59,6 +64,21 @@ public class GameManager : MonoBehaviour
 
     public void PlayMusic() => SoundManager.Instance.CreateSound().Play(music);
 
+    public GestureName GetRandomGesture()
+    {
+        int step = Random.Range(1, templateScriptableObjects.Length);
+        
+        currentGesture = (currentGesture + step) % templateScriptableObjects.Length;
+        
+        return templateScriptableObjects[currentGesture].gestureName;
+    }
+
+    public void CompareHighScore(int score)
+    {
+        if (score > HighScore) HighScore = score;
+        Actions.OnHighscoreUpdate.Invoke();
+    }
+
     private void StartGameLogic()
     {
         gameStartTime = Time.time;
@@ -75,7 +95,7 @@ public class GameManager : MonoBehaviour
         if (!isGameRunning) return;
 
         float timeAlive = Time.time - gameStartTime;
-        float calculatedSpeed = Mathf.Log(timeAlive + 1) * speedMultiplier;
+        float calculatedSpeed = (1 + Mathf.Pow(timeAlive, 0.6f));
     
         CurrentGameSpeed = Mathf.Min(calculatedSpeed, maxSpeed);
     }

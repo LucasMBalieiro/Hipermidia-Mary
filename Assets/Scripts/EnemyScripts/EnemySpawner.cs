@@ -20,9 +20,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float maxSpawnDelay = 3.0f;
     [SerializeField] private float bossSpawnDelay = 20f;
     
-    [Header("Speed Progression")]
-    [SerializeField] private float maxSpeed = 20f;
-    
     private Coroutine spawnCoroutine;
     private Coroutine bossSpawnCoroutine;
     
@@ -77,16 +74,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void InstantiateEnemy(EnemyScriptableObject enemySO)
     {
-        float calculatedSpeed = GetSpeed();
         Transform spawnPoint = GetSpawnPoint(enemySO.enemyType);
         
         EnemyController newEnemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-        newEnemy.Initialize(enemySO, calculatedSpeed, playerPosition.position.x);
-    }
-
-    private float GetSpeed()
-    {
-        return Mathf.Min(GameManager.Instance.CurrentGameSpeed, maxSpeed);
+        newEnemy.Initialize(enemySO, playerPosition.position.x);
     }
 
     private Transform GetSpawnPoint(EnemyType enemyType)
