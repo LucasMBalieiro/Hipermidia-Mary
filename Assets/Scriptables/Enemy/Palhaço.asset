@@ -18,6 +18,6 @@ MonoBehaviour:
   - {fileID: -3420617141709164072, guid: c9d68a180098af34ca7b350fdda3e43d, type: 3}
   - {fileID: 7659751984177579302, guid: c9d68a180098af34ca7b350fdda3e43d, type: 3}
   - {fileID: 1534634072, guid: c9d68a180098af34ca7b350fdda3e43d, type: 3}
-  enemyType: 0
+  yPosition: -1.03
   scorePoints: 7
   speedMultiplier: 1

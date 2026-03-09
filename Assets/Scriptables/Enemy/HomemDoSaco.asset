@@ -17,6 +17,6 @@ MonoBehaviour:
   animationFrames:
   - {fileID: 4464096614945973410, guid: b74b5124f56b6c94e9f9f9657d6797a6, type: 3}
   - {fileID: 1656642788569518843, guid: b74b5124f56b6c94e9f9f9657d6797a6, type: 3}
-  enemyType: 2
+  yPosition: 1.44
   scorePoints: 30
   speedMultiplier: 0.6

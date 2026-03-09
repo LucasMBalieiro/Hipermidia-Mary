@@ -74,20 +74,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void InstantiateEnemy(EnemyScriptableObject enemySO)
     {
-        Transform spawnPoint = GetSpawnPoint(enemySO.enemyType);
-        
-        EnemyController newEnemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+        EnemyController newEnemy = Instantiate(enemyPrefab, new Vector3(24f, enemySO.yPosition, 0f), Quaternion.identity);
         newEnemy.Initialize(enemySO, playerPosition.position.x);
-    }
-
-    private Transform GetSpawnPoint(EnemyType enemyType)
-    {
-        return enemyType switch
-        {
-            EnemyType.Ground => groundSpawnPoint,
-            EnemyType.Flying => airSpawnPoint,
-            EnemyType.Boss => bossSpawnPoint,
-            _ => throw new ArgumentOutOfRangeException(nameof(enemyType), enemyType, null)
-        };
     }
 }
